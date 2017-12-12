@@ -1,4 +1,3 @@
-
 module.exports = function(emmiter){
 	var connection = require("./connection.js")(emmiter);
 	var module = {

@@ -18,7 +18,6 @@ emmiter.on("test", function(){
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
 app.get("/:par_name?", function(request, response){
 
 	console.log("// %s", request.params.par_name);

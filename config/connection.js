@@ -15,4 +15,4 @@ module.exports = function(emmiter){
 		console.log("Connected:" + connection.threadId);
 	});
 	return connection;
-}();
+};
