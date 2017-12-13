@@ -1,12 +1,12 @@
 module.exports = function(emmiter){
 	var connection = require("./connection.js")(emmiter);
 	var module = {
-		selectAll : ()=>{
+		selectAll : (cb)=>{
 			connection.query('SELECT * FROM `burgers`', function (error, results) {
-				console.log("selectAll");
-				console.log(results);
-				emmiter.emit("test")
-				return results;
+				console.log("Run: selectAll()");
+				console.log(results[0]);
+
+				return results[0];
 			});
 		},
 		insertOne : ()=>{
@@ -16,4 +16,3 @@ module.exports = function(emmiter){
 	}
 	return	module;
 }
-
