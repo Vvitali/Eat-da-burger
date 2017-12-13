@@ -23,5 +23,12 @@ exports.home = function (request, response){
 }
 
 exports.addOne = function(request, response){
-	console.log("Put:"+ request.body);
+	if (!request.body) return response.sendStatus(400);
+	console.log("Put:"+ request.body.name);
+	burgerModel.insertOne(request.body.name, function(error, results){
+		if(error){
+			throw error;
+		}
+		response.send("Added!");
+	})
 }

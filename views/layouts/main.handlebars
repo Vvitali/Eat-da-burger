@@ -22,8 +22,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
 		$("#bAdd").click(function(){
-			$("#nameOfNewBurger").val()
-			console.log("Add!");
+			
+			var data = {
+				name: $("#nameOfNewBurger").val()
+			}
+			$.post("/addBurger", data, function(event){
+				console.log("Add!");
+				console.log(event);
+			})
+			
 		})
 	</script>
 </body>

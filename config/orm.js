@@ -12,5 +12,5 @@ exports.insertOne = (name, cb)=>{
 		cb(error, results);
 	});
 }
-exports.iupdateOne = ()=>{
+exports.updateOne = ()=>{
 }

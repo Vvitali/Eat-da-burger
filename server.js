@@ -6,10 +6,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
+
 var controllers = require("./controllers/burger_controller.js");
 
-app.get("/*", controllers.home)
-app.post("/addBurger", controllers.addOne{
+app.get("/*", controllers.home);
+app.post("/addBurger", controllers.addOne);
 
-})
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
