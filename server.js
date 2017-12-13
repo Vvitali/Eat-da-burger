@@ -9,4 +9,7 @@ app.set("view engine", "handlebars");
 var controllers = require("./controllers/burger_controller.js");
 
 app.get("/*", controllers.home)
+app.post("/addBurger", controllers.addOne{
+
+})
 app.listen(8080);
