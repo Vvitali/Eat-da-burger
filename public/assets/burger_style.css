@@ -4,3 +4,11 @@
 	left: 0px;
 	right: 0px;
 }
+
+.burgerItem h4, button{
+	display: inline-block;
+}
+
+.burgerItem button{
+	margin: 20px;
+}

@@ -1,14 +1,13 @@
 var connection = require("./connection.js");
 exports.selectAll = (cb)=>{
 	connection.query('SELECT * FROM `burgers`', function (error, results) {
-		console.log("Run: selectAll()");
-		console.log(results);
+		console.log(":Run: selectAll()");
 		cb(error, results);
 	});
 };
 exports.insertOne = (name, cb)=>{
 	connection.query("INSERT INTO burgers (burger_name, devoured, date) VALUES (?, false, ?)", [name, Date()], function(error, results){
-		console.log("Run: insertOne()");
+		console.log(":Run: insertOne(): "+Date());
 		cb(error, results);
 	});
 }

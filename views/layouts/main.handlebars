@@ -17,13 +17,10 @@
 
 	{{{ body }}}
 
-
 	{{> footer}}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script type="text/javascript">
-		$("#bAdd").click(function(){
-			
-			
+		$("#bAdd").click(function(){			
 			if(!!$("#nameOfNewBurger").val()){
 				console.log("Add-BTN!");
 				var data = {
@@ -32,12 +29,14 @@
 				$.post("/addBurger", data, function(event){
 					if(event){
 						console.log(event);
-						$("#inBase").append("<h2>"+event.name+"</h2>")
+						var newItem = $("<div style='display: inline;'>");
+						newItem.append("<h2>"+event.name+"</h2>");
+						newItem.append("<button class='btn'>Devour</button>");
+
+						$("#inBase").append(newItem);
 					}
 				});
 			}
-			
-
 		})
 	</script>
 </body>
