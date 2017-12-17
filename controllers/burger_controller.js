@@ -41,5 +41,5 @@ exports.updateOne = function(request, response){
 		response.send({
 			id: request.body.id
 		});
-	})
+	});
 }

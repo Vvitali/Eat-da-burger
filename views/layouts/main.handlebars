@@ -38,17 +38,16 @@
 			}
 		});
 		$("#inBase").on("click", ".devourBtn", function(event){
-			$.post("/addBurger", data, function(event){
+			$.post("/update", {id: $(event.target).parent().attr("data-id")}, function(response){
 				if(event){
-					console.log(event);
-					var newItem = $("<li>");
-					newItem.append("<h4>"+event.name+"</h4>");
-					newItem.append("<button class='btn'>Devour</button>");
-					$("#inBase").append(newItem);
+					console.log("Response: "+response.id);
+					console.log($(event.target).parent().attr("data-id"));
+
+					$(event.target).parent().appendTo(".burgerItemDevoured");
+					$(event.target).remove();
 				}
 			});
-			console.log($(event.target).parent().attr("data-id"));
-			$(event.target).parent().appendTo(".burgerItemDevoured");
+			
 		})
 	</script>
 </body>
