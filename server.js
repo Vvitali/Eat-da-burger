@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var controllers = require("./controllers/burger_controller.js");
 
-app.get("/*", controllers.home);
+app.get("/", controllers.home);
 app.post("/addBurger", controllers.addOne);
 app.post("/update", controllers.updateOne);
 
