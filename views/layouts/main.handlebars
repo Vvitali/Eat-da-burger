@@ -23,14 +23,21 @@
 	<script type="text/javascript">
 		$("#bAdd").click(function(){
 			
-			var data = {
-				name: $("#nameOfNewBurger").val()
-			}
-			$.post("/addBurger", data, function(event){
-				console.log("Add!");
-				console.log(event);
-			})
 			
+			if(!!$("#nameOfNewBurger").val()){
+				console.log("Add-BTN!");
+				var data = {
+					name: $("#nameOfNewBurger").val()
+				};
+				$.post("/addBurger", data, function(event){
+					if(event){
+						console.log(event);
+						$("#inBase").append("<h2>"+event.name+"</h2>")
+					}
+				});
+			}
+			
+
 		})
 	</script>
 </body>

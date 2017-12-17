@@ -29,6 +29,8 @@ exports.addOne = function(request, response){
 		if(error){
 			throw error;
 		}
-		response.send("Added!");
+		response.send({
+			name: request.body.name
+		});
 	})
 }
