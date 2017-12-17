@@ -30,3 +30,16 @@ exports.addOne = function(request, response){
 		});
 	})
 }
+
+exports.updateOne = function(request, response){
+	if (!request.body) return response.sendStatus(400);
+	console.log("Update:"+ request.body.id);
+	burgerModel.updateOne(request.body.id, function(error, results){
+		if(error){
+			throw error;
+		}
+		response.send({
+			id: request.body.id
+		});
+	})
+}

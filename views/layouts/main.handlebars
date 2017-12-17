@@ -29,14 +29,26 @@
 				$.post("/addBurger", data, function(event){
 					if(event){
 						console.log(event);
-						var newItem = $("<div style='display: inline;'>");
-						newItem.append("<h2>"+event.name+"</h2>");
+						var newItem = $("<li>");
+						newItem.append("<h4>"+event.name+"</h4>");
 						newItem.append("<button class='btn'>Devour</button>");
-
 						$("#inBase").append(newItem);
 					}
 				});
 			}
+		});
+		$("#inBase").on("click", ".devourBtn", function(event){
+			$.post("/addBurger", data, function(event){
+				if(event){
+					console.log(event);
+					var newItem = $("<li>");
+					newItem.append("<h4>"+event.name+"</h4>");
+					newItem.append("<button class='btn'>Devour</button>");
+					$("#inBase").append(newItem);
+				}
+			});
+			console.log($(event.target).parent().attr("data-id"));
+			$(event.target).parent().appendTo(".burgerItemDevoured");
 		})
 	</script>
 </body>
