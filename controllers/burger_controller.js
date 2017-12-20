@@ -26,7 +26,8 @@ exports.addOne = function(request, response){
 			throw error;
 		}
 		response.send({
-			name: request.body.name
+			name: request.body.name,
+			id: results.insertId
 		});
 	})
 }
