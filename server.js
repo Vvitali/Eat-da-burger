@@ -1,9 +1,9 @@
 var express = require("express");
 var app = new require('express')();
-var exphbs = require("express-handlebars");
+var { engine } = require("express-handlebars");
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var bodyParser = require("body-parser");
